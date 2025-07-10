@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swaasthify - Your Health Companion</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: url("resized_image_1920x1080.png") no-repeat center center/cover;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            padding: 15px 30px;
+            color: white;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .logo {
+            height: 60px; 
+            width: auto;
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .login-form {
+            width: 300px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .login-form select,
+        .login-form input,
+        .login-form button {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .content-section {
+            display: none;
+            text-align: center;
+            padding: 100px 20px;
+            width: 80%;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 80px;
+        }
+
+        .footer {
+            background: #2a5298;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <a href="index.html">
+            <img src="Swaastify_Green.png" alt="Swaasthify Logo" class="logo">
+        </a>
+        <ul>
+            <li><a onclick="showSection('home')">Home</a></li>
+            <li><a onclick="showSection('about')">About</a></li>
+            <li><a onclick="showSection('services')">Services</a></li>
+            <li><a onclick="showSection('contact')">Contact</a></li>
+        </ul>
+    </header>
+    
+    <section class="login-container" id="home">
+        <h2>Login</h2>
+        <div class="login-form">
+            <form>
+                <label for="user-type">Login as:</label>
+                <select id="user-type" required>
+                    <option value="">Select User Type</option>
+                    <option value="doctor">Doctor</option>
+                    <option value="patient">Patient</option>
+                </select>
+                <label for="username">Username:</label>
+                <input type="text" id="username" placeholder="Enter your Username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="Enter your Password" required>
+                <button type="submit">Submit</button>
+            </form>
+            <p>Not registered? <a href="#">Create an account</a></p>
+        </div>
+    </section>
+
+    <section class="content-section" id="about">
+        <h2>About Swaasthify</h2>
+        <p>We understand that healthcare systems struggle with real-time patient monitoring, data-driven clinical support, resource management, and accessibility through telemedicine.</p>
+        <p>Our solution enhances efficiency, accessibility, and accuracy in healthcare delivery.</p>
+    </section>
+    
+    <section class="content-section" id="services">
+        <h2>Our Services</h2>
+        <p>We offer real-time health tracking, AI-powered decision support, and optimized resource allocation for healthcare facilities.</p>
+    </section>
+    
+    <section class="content-section" id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: contact@swaasthify.com</p>
+        <p>Phone: +123 456 7890</p>
+        <p>Address: 123 Health St, Wellness City</p>
+    </section>
+    
+    <footer class="footer">
+        <p>&copy; 2025 Swaasthify. All Rights Reserved.</p>
+    </footer>
+    
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.content-section, .login-container').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'flex';
+        }
+        showSection('home'); 
+    </script>
+</body>
+</html>
